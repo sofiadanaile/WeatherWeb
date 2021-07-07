@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="c:/Users/sofia/OneDrive/Рабочий стол/Project/SheCodes Plus/week3/We/weatherController.js"></script>
+    <title>Weather App</title>
+</head>
+
+<body id="body">
+    <div class="container">
+        <div class="card">
+            <div class="bg-image" style="background-image:url('https://wallpaperaccess.com/full/1778999.jpg')">
+            <div class="crad-body">
+                <div class="row g-3">
+                    <div class="col-auto">
+                        <input type="text" class="form-control" id="inputCity1" placeholder="City">
+                    </div>
+                    <div class="col-auto">
+                        <button type="submit" class="btn btn-primary mb-3" id="btn-submit">Search</button>
+                        <button type="submit" class="btn btn-primary mb-3" id="btn-gps">Weather by location</button>
+                    </div>
+                </div>
+                <div class="weather-date-location">
+                    <h3 class="Curday">Friday</h3>
+                    <p class="text-gray">
+                    <div id="Wdata"><span class="weather-date">15 April</span>, <span class="time">02:10</span> | <span
+                            class="weather-location">Warsaw,
+                            Poland</span></div>
+                    </p>
+                </div>
+                <div class="weather-data d-flex">
+                    <div class="mr-auto">
+                        <h4 class="display-3"><span id="tempo">32</span> <button class="celsius">°C</button> | <button
+                                class="fahrenheit"><span>F</span></button></h4>
+                        <p id="sky"> Cloudy </p>
+                    </div>
+                </div>
+                <div class="card-body p-3">
+                    <div class="d-flex weakly-weather">
+                        <div class="weakly-weather-item">
+                            <p class="mb-1"> Sun </p> <i class="fab fa-cloudflare"></i>
+                            <p class="mb-0"> 30° </p>
+                        </div>
+                        <div class="weakly-weather-item">
+                            <p class="mb-1"> Mon </p> <i class="fas fa-smog"></i>
+                            <p class="mb-0"> 31° </p>
+                        </div>
+                        <div class="weakly-weather-item">
+                            <p class="mb-1"> Tue </p> <i class="fas fa-cloud-sun"></i>
+                            <p class="mb-0"> 28° </p>
+                        </div>
+                        <div class="weakly-weather-item">
+                            <p class="mb-1"> Wed </p> <i class="fas fa-bolt"></i>
+                            <p class="mb-0"> 30° </p>
+                        </div>
+                        <div class="weakly-weather-item">
+                            <p class="mb-1"> Thu </p> <i class="fas fa-water"></i>
+                            <p class="mb-0"> 29° </p>
+                        </div>
+                        <div class="weakly-weather-item">
+                            <p class="mb-1"> Fri </p> <i class="fas fa-cloud-sun-rain"></i>
+                            <p class="mb-0"> 31° </p>
+                        </div>
+                        <div class="weakly-weather-item">
+                            <p class="mb-1"> Sat </p> <i class="fas fa-sun"></i>
+                            <p class="mb-0"> 32° </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+    <div class="info">
+        <p class="creator"><a href="https://github.com/sofiadanaile/Weather.web-app" target="_blank">Open-source project</a> created by <a href="https://www.linkedin.com/in/sofiiadanaile/" target="_blank">Sophie</a></p>
+    </div>
+</body>
+
+</html>

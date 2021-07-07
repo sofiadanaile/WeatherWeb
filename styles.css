@@ -1,0 +1,57 @@
+.row.g-3 {
+  margin-left: 5px;
+}
+
+.weather-data {
+  margin-left: 15px;
+}
+
+.weather-date-location {
+  margin-left: 15px;
+}
+
+.form-control {
+  background: rgba(255, 255, 255, 0.192);
+}
+.form-control:hover {
+  background: rgba(255, 255, 255, 0.288);
+}
+
+.btn.btn-primary.mb-3 {
+  background-color: rgba(127, 255, 212, 0.486);
+  border-color: transparent;
+}
+
+.weakly-weather-item {
+  text-align: center;
+  width: 250px;
+}
+
+.celsius {
+  text-decoration: none;
+  color: rgb(41, 41, 41);
+  background: transparent;
+  border-color: transparent;
+  font-weight: lighter;
+}
+
+.celsius:focus-within {
+  color: rgb(146, 12, 12);
+}
+
+.fahrenheit {
+  text-decoration: none;
+  color: rgb(41, 41, 41);
+  background: transparent;
+  border-color: transparent;
+  font-weight: lighter;
+}
+
+.fahrenheit:focus-within {
+  color: rgb(146, 12, 12);
+}
+
+.info {
+  text-align: left;
+  margin-left: 85px;
+}
