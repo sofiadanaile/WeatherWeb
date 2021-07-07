@@ -1,4 +1,76 @@
 var TemperatureType = "C";
+
+var IDThunderstorm = [
+  200,
+  201,
+  202,
+  210,
+  211,
+  212,
+  221,
+  230,
+  231,
+  232
+];
+var IDDrizzle = [
+  300,
+  301,
+  302,
+  310,
+  311,
+  312,
+  313,
+  314,
+  321
+];
+var IDRain = [
+  500,
+  501,
+  502,
+  503,
+  504,
+  511,
+  520,
+  521,
+  522,
+  531
+];
+var IDSnow = [
+  600,
+  601,
+  602,
+  611,
+  612,
+  613,
+  615,
+  616,
+  620,
+  621,
+  622
+];
+var IDAtmosphere = [
+  701,
+  711,
+  721,
+  731,
+  741,
+  751,
+  761,
+  762,
+  771,
+  781
+];
+var IDClear = [
+  800
+];
+var IDClouds = [
+  801,
+  802,
+  803,
+  804
+];
+
+
 window.onload = function () {
   let btn = document.getElementById("btn-submit");
   btn.addEventListener("click", City, true);
@@ -30,8 +102,8 @@ function temperature(response) {
   let tem = document.getElementById("tempo");
   let sky = document.querySelector("#sky");
   let skydes = response.data.weather[0].description;
-  var skyUpper = skydes.substring(0,1).toUpperCase();
-  skydes = skyUpper + skydes.substring(1,skydes.length)
+  var skyUpper = skydes.substring(0, 1).toUpperCase();
+  skydes = skyUpper + skydes.substring(1, skydes.length)
   sky.innerHTML = skydes;
   let tempa = response.data.main.temp;
   tem.innerHTML = tempa;
@@ -57,81 +129,37 @@ function geotemperature(response) {
   let resman = response.data.name;
   let sky = document.querySelector("#sky");
   let skydes = response.data.weather[0].description;
-  var skyUpper = skydes.substring(0,1).toUpperCase();
-  skydes = skyUpper + skydes.substring(1,skydes.length)
+  var skyUpper = skydes.substring(0, 1).toUpperCase();
+  skydes = skyUpper + skydes.substring(1, skydes.length)
   sky.innerHTML = skydes;
   namm.innerHTML = resman;
   geom.innerHTML = gtem;
   var el = document.querySelector(".bg-image");
-  var IDThunderstorm = [
-    200,
-    201,
-    202,
-    210,
-    211,
-    212,
-    221,
-    230,
-    231,
-    232
-  ];
-  var IDDrizzle = [
-    300,
-    301,
-    302,
-    310,
-    311,
-    312,
-    313,
-    314,
-    321
-  ];
-  var IDRain = [
-    500,
-    501,
-    502,
-    503,
-    504,
-    511,
-    520,
-    521,
-    522,
-    531
-  ];
-  var IDSnow = [
-    600,
-    601,
-    602,
-    611,
-    612,
-    613,
-    615,
-    616,
-    620,
-    621,
-    622
-  ];
-  var IDAtmosphere = [
-    701,
-    711,
-    721,
-    731,
-    741,
-    751,
-    761,
-    762,
-    771,
-    781
-  ];
-  var IDClear = [
-    800
-  ];
-  var IDClouds = [
-    801,
-    802,
-    803,
-    804
-  ];
+  this.selectImageForWeather(response.data);
+}
+
+function selectImageForWeather(weatherData) {
+  if (IDClouds.includes(weatherData.weather[0].id)) {
+    alert('CloudsIMAGE');
+  }
+  if (IDClear.includes(weatherData.weather[0].id)) {
+    alert('ClearIMAGE');
+  }
+  if (IDDrizzle.includes(weatherData.weather[0].id)) {
+    alert('DrizzleIMAGE');
+  }
+  if (IDRain.includes(weatherData.weather[0].id)) {
+    alert('RAINIMAGE');
+  }
+  if (IDThunderstorm.includes(weatherData.weather[0].id)) {
+    alert('ThunderstormIMAGE');
+  }
+  if (IDSnow.includes(weatherData.weather[0].id)) {
+    alert('SNOWIMAGE');
+  }
+  if (IDAtmosphere.includes(weatherData.weather[0].id)) {
+    alert('ATMOSPHEREIMAGE');
+  }
 }
 
 function dayta() {
@@ -155,6 +183,8 @@ function dayta() {
   let daydate = document.querySelector(".weather-date");
   daydate.innerHTML = date + " " + monthslist[months];
 }
+
+
 
 function dateya() {
   var today = new Date();
