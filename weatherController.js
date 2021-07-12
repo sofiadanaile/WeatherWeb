@@ -107,6 +107,7 @@ function temperature(response) {
   sky.innerHTML = skydes;
   let tempa = response.data.main.temp;
   tem.innerHTML = tempa;
+  this.selectImageForWeather(response.data);
 }
 function positionbygeo() {
   navigator.geolocation.getCurrentPosition(geotemp);
@@ -140,25 +141,26 @@ function geotemperature(response) {
 
 function selectImageForWeather(weatherData) {
   if (IDClouds.includes(weatherData.weather[0].id)) {
-    alert('CloudsIMAGE');
+    var el = document.querySelector(".bg-image");
+    document.getElementsByClassName("bg-image")[0].style.backgroundImage = "url(https://jooinn.com/images/rain-clouds-5.jpg)"
   }
   if (IDClear.includes(weatherData.weather[0].id)) {
-    alert('ClearIMAGE');
+    document.getElementsByClassName("bg-image")[0].style.backgroundImage = "url(https://wallpapercave.com/wp/wp6289040.jpg)"
   }
   if (IDDrizzle.includes(weatherData.weather[0].id)) {
-    alert('DrizzleIMAGE');
+    document.getElementsByClassName("bg-image")[0].style.backgroundImage = "url(https://pluviophile.net/wp-content/uploads/rain-on-a-green-windowpain-wallpaper.jpg)"
   }
   if (IDRain.includes(weatherData.weather[0].id)) {
-    alert('RAINIMAGE');
+    document.getElementsByClassName("bg-image")[0].style.backgroundImage = "url(https://i.ytimg.com/vi/CqKQsQfE3Mw/maxresdefault.jpg)"
   }
   if (IDThunderstorm.includes(weatherData.weather[0].id)) {
-    alert('ThunderstormIMAGE');
+    document.getElementsByClassName("bg-image")[0].style.backgroundImage = "url(https://www.thetimes.co.uk/imageserver/image/%2Fmethode%2Ftimes%2Fprod%2Fweb%2Fbin%2Fdb3825a6-9744-11e8-85e3-d844d3177259.jpg?crop=4608%2C2592%2C0%2C240&resize=1180)"
   }
   if (IDSnow.includes(weatherData.weather[0].id)) {
-    alert('SNOWIMAGE');
+    document.getElementsByClassName("bg-image")[0].style.backgroundImage = "url(https://www.metoffice.gov.uk/binaries/content/gallery/metofficegovuk/hero-images/weather/winter/footprints-in-the-snow.jpg)"
   }
   if (IDAtmosphere.includes(weatherData.weather[0].id)) {
-    alert('ATMOSPHEREIMAGE');
+    document.getElementsByClassName("bg-image")[0].style.backgroundImage = "url(https://i.pinimg.com/originals/26/be/b0/26beb09153b8df233d82e66bef3edfbb.jpg)"
   }
 }
 
