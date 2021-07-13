@@ -108,7 +108,24 @@ function temperature(response) {
   let tempa = response.data.main.temp;
   tem.innerHTML = tempa;
   this.selectImageForWeather(response.data);
+  this.DescriptionOfWeather(response.data);
 }
+
+function DescriptionOfWeather(response) {
+  let element = document.getElementById("WindandOther");
+  let wind = response.data.wind.speed;
+  let speed = (wind * 3.6).toFixed(1);
+  let humidity = document.getElementById("humidity");
+  let percent = response.data.main.humidity;
+  let feelsLike = document.getElementById("FeelsLike");
+  let feelsLikeC = response.data.main.feels_like.toFixed(1);
+  let feelslikeF = ((feelsLikeC * 9) / 5 + 32).toFixed(1);
+  feelsLike.innerHTML =
+    "Feels like: " + feelsLikeC + "°C " + "or  " + feelslikeF + "°F";
+  humidity.innerHTML = "Humidity: " + percent + " %";
+  element.innerHTML = "Wind speed: " + speed + " km/h";
+}
+
 function positionbygeo() {
   navigator.geolocation.getCurrentPosition(geotemp);
 }
@@ -137,6 +154,7 @@ function geotemperature(response) {
   geom.innerHTML = gtem;
   var el = document.querySelector(".bg-image");
   this.selectImageForWeather(response.data);
+  this.DescriptionOfWeather(response.data);
 }
 
 function selectImageForWeather(weatherData) {
