@@ -113,7 +113,7 @@ function temperature(response) {
 
 function DescriptionOfWeather(response) {
   let element = document.getElementById("WindandOther");
-  let wind = response.data.wind.speed;
+  let wind = response.wind.speed;
   let speed = (wind * 3.6).toFixed(1);
   let humidity = document.getElementById("humidity");
   let percent = response.data.main.humidity;
