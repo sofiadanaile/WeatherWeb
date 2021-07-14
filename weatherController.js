@@ -116,9 +116,9 @@ function DescriptionOfWeather(response) {
   let wind = response.wind.speed;
   let speed = (wind * 3.6).toFixed(1);
   let humidity = document.getElementById("humidity");
-  let percent = response.data.main.humidity;
+  let percent = response.main.humidity;
   let feelsLike = document.getElementById("FeelsLike");
-  let feelsLikeC = response.data.main.feels_like.toFixed(1);
+  let feelsLikeC = response.main.feels_like.toFixed(1);
   let feelslikeF = ((feelsLikeC * 9) / 5 + 32).toFixed(1);
   feelsLike.innerHTML =
     "Feels like: " + feelsLikeC + "°C " + "or  " + feelslikeF + "°F";
