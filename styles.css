@@ -63,6 +63,11 @@
 
 .weather-forecast-day {
   font-size: 16px;
+  font-weight: bolder;
+}
+
+.weather-forecast-temperature-min {
+  font-weight: bolder;
 }
 
 .weather-forecast-temperatures {
