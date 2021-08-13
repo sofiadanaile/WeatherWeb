@@ -115,6 +115,8 @@ function temperature(response) {
 
 function displayForecast() {
   let forecastElement = document.querySelector("#weather-forecast");
+  let forecastDay = document.querySelector(".weather-forecast-day");
+  forecastDay = days;
   let days =["Thu", "Fri", "Sat", "Sun"];
   let forecastHTML = `<div class="row">`;
   days.forEach(function(day) {
