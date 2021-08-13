@@ -113,15 +113,14 @@ function temperature(response) {
 }
 
 
-function displayForecast() {
+function displayForecast(response) {
+  console.log(response.data.daily);
   let forecastElement = document.querySelector("#weather-forecast");
-  let forecastDay = document.querySelector(".weather-forecast-day");
-  forecastDay.innerHTML = days;
   let days =["Thu", "Fri", "Sat", "Sun"];
   let forecastHTML = `<div class="row">`;
   days.forEach(function(day) {
     forecastHTML = forecastHTML + `<div class="col-2">
-                                <div class="weather-forecast-day">Thu</div>
+                                <div class="weather-forecast-day">${day}</div>
                                 <img src="http://openweathermap.org/img/wn/10d@2x.png" alt="rain" width="70">
                                 <div class="weather-forecast-temperatures">
                                     <span class="weather-forecast-temperature-max"> 18°C </span>
