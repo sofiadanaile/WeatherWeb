@@ -109,7 +109,7 @@ function temperature(response) {
   tem.innerHTML = tempa;
   this.selectImageForWeather(response.data);
   this.DescriptionOfWeather(response.data);
-  this.displayForecast();
+  this.getForecast(response.data.coord);
 }
 
 
@@ -131,6 +131,13 @@ function displayForecast(response) {
   });
   forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
+}
+
+function getForecast(coordinates) {
+  console.log(coordinates);
+  let apiKey = "5f472b7acba333cd8a035ea85a0d4d4c";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayForecast);
 }
 
 function DescriptionOfWeather(response) {
@@ -177,7 +184,7 @@ function geotemperature(response) {
   var el = document.querySelector(".bg-image");
   this.selectImageForWeather(response.data);
   this.DescriptionOfWeather(response.data);
-  this.displayForecast();
+  this. getForecast(response.data.coord);
 }
 
 function selectImageForWeather(weatherData) {
