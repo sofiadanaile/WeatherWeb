@@ -67,7 +67,7 @@
 }
 
 .weather-forecast-temperature-min {
-  font-weight: unset;
+  font-weight: 100;
 }
 
 .weather-forecast-temperatures {
