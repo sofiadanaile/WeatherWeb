@@ -114,21 +114,23 @@ function temperature(response) {
 
 
 function displayForecast(response) {
-  console.log(response.data.daily);
+  let forecast = response.data.daily;
   let forecastElement = document.querySelector("#weather-forecast");
-  let days =["Thu", "Fri", "Sat", "Sun"];
+  
   let forecastHTML = `<div class="row">`;
-  days.forEach(function(day) {
+  forecast.forEach(function(forecastDay, index) {
+    if (index < 6) 
+    {
     forecastHTML = forecastHTML + `<div class="col-2">
-                                <div class="weather-forecast-day">${day}</div>
-                                <img src="http://openweathermap.org/img/wn/10d@2x.png" alt="rain" width="70">
+                                <div class="weather-forecast-day">${formatDay(forecastDay.dt)}</div>
+                                <img src="http://openweathermap.org/img/wn/${forecastDay.weather[0].icon}@2x.png" alt="" width="70">
                                 <div class="weather-forecast-temperatures">
-                                    <span class="weather-forecast-temperature-max"> 18°C </span>
-                                    <span class="weather-forecast-temperature-min"> 12°C </span>
+                                    <span class="weather-forecast-temperature-max"> ${Math.round(forecastDay.temp.max)}° </span>
+                                    <span class="weather-forecast-temperature-min"> ${Math.round(forecastDay.temp.min)}° </span>
                                 </div>
                                 <br>
                             </div>`;
-  });
+  }});
   forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
 }
