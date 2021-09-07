@@ -270,6 +270,15 @@ function timeday() {
   curtime.innerText = hour + ":" + minute;
 }
 
+document.getElementById('inputCity1')
+    .addEventListener('keyup', function(event) {
+        if (event.code === 'Enter')
+        {
+            event.preventDefault();
+            document.querySelector('form').submit();
+        }
+    });
+
 function temperatureF(event) {
   event.preventDefault();
   if (TemperatureType === "C") {
