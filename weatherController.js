@@ -178,15 +178,6 @@ function geotemp(position) {
   axios.get(apiUrl).then(geotemperature);
 }
 
-function sub(event) {
-  event.preventDefault();
-  let cityInputElement = document.querySelector("#inputCity1");
-  search(cityInputElement.value);
-}
-
-let form = document.querySelector("#search-form");
-form.addEventListener("submit", sub);
-
 function geotemperature(response) {
   let geom = document.getElementById("tempo");
   let gtem = response.data.main.temp;
