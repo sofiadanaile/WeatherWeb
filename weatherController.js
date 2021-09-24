@@ -83,6 +83,7 @@ window.onload = function () {
   dateya();
   dayta();
   timeday();
+  sub();
 };
 
 function City(event) {
@@ -120,15 +121,31 @@ function formatDay(timestamp) {
   return days[day];
 }
 
+function sub() {
+  var input = document.getElementById('inputCity1')
+  input.addEventListener('keydown', function (event) {
+    if (event.code === 'Enter') {
+      event.preventDefault();
+        let input = document.querySelector("#inputCity1");
+  console.log(input.value);
+  let city1 = document.getElementsByClassName("weather-location");
+  city1[0].innerHTML = input.value;
+  let apiKey = "cddcdbeb0d8ae256f1f13853924685e8";
+  let cityname = document.querySelector("#inputCity1").value;
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityname}&units=metric&appid=${apiKey}`;
+  axios.get(apiUrl).then(temperature);
+    }
+  });
+}
+
 function displayForecast(response) {
   let forecast = response.data.daily;
   let forecastElement = document.querySelector("#weather-forecast");
-  
+
   let forecastHTML = `<div class="row">`;
-  forecast.forEach(function(forecastDay, index) {
-    if (index < 6) 
-    {
-    forecastHTML = forecastHTML + `<div class="col-2">
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 6) {
+      forecastHTML = forecastHTML + `<div class="col-2">
                                 <div class="weather-forecast-day">${formatDay(forecastDay.dt)}</div>
                                 <img src="http://openweathermap.org/img/wn/${forecastDay.weather[0].icon}@2x.png" alt="" width="70">
                                 <div class="weather-forecast-temperatures">
@@ -137,7 +154,8 @@ function displayForecast(response) {
                                 </div>
                                 <br>
                             </div>`;
-  }});
+    }
+  });
   forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
 }
@@ -193,7 +211,7 @@ function geotemperature(response) {
   var el = document.querySelector(".bg-image");
   this.selectImageForWeather(response.data);
   this.DescriptionOfWeather(response.data);
-  this. getForecast(response.data.coord);
+  this.getForecast(response.data.coord);
 }
 
 function selectImageForWeather(weatherData) {
@@ -270,14 +288,6 @@ function timeday() {
   curtime.innerText = hour + ":" + minute;
 }
 
-document.getElementById('inputCity1')
-    .addEventListener('keyup', function(event) {
-        if (event.code === 'Enter')
-        {
-            event.preventDefault();
-            document.querySelector('form').submit();
-        }
-    });
 
 function temperatureF(event) {
   event.preventDefault();
